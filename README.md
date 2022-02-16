@@ -72,8 +72,7 @@ Table 1: Summary of numeric features of the dataset
 last 50 years. To be more specific, all the continents have extended
 longevity and experienced population and economic booms.
 
-![EDA analysis of
-Gapminder](/Users/supernova/Documents/workplace/DSCI_532/milestone_py/our_changing_world/eda.png)
+![eda](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
 
 Figure 1: EDA analysis on `Gapminder`
 
