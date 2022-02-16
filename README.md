@@ -1,6 +1,9 @@
 # our_changing_world
 
-[! https://img.shields.io/github/license/veerupandey/our_changing_world] [! https://img.shields.io/badge/Made%20at-Starschema-red]
+<!-- badges: start -->
+[![LICENSE](https://img.shields.io/github/license/UBC-MDS/our_changing_world)](https://img.shields.io/github/license/UBC-MDS/our_changing_world)
+<!-- badges: end -->
+
 Our changing world
 
 
@@ -10,8 +13,8 @@ To run a development instance locally, create a virtualenv, install the
 requirements from `requirements.txt` and launch `app.py` using the 
 Python executable from the virtualenv.
 
-## Deploying on ECS
+## Deploying on Heroku
 
 Use `make image` to create a Docker image. Then, follow [these 
-instructions](https://www.chrisvoncsefalvay.com/2019/08/28/deploying-dash-on-amazon-ecs/) 
-to deploy the image on ECS.
+instructions](link_to_url) 
+to deploy the image on Heroku.
