@@ -1,5 +1,4 @@
-Our Changing World!
-================
+# Our Changing World!
 
 ![license
 status](https://img.shields.io/github/license/UBC-MDS/our_changing_world)
