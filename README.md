@@ -68,10 +68,10 @@ all of 3 dimensions.
 Table 1: Summary of numeric features of the dataset
 
 `Figure 1` also shows the tremendous changes of these 3 features over
-last 50 years. To be more specific, all the continents have extended
-longevity and experienced population and economic booms.
+last 50 years. To be more specific, all the continents have experienced extending longevity and  population as well as economic booms.
+However, some countries have undergone extensive transformations, widening disparities to others as shown in long-tailed violin plots.
 
-![eda](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
+![eda](https://user-images.githubusercontent.com/82998596/154385333-9d183481-02c3-419b-b139-108604ecb058.png)
 
 Figure 1: EDA analysis on `Gapminder`
 
