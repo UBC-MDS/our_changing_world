@@ -44,13 +44,11 @@ The dataset used in this project, [`gapminder`](https://www.gapminder.org/), com
 | 3rd Qu. |      70.85      | 1.959e+07  |     9325.5     |
 | Max.    |      82.60      | 1.319e+09  |    113523.1    |
 
-
 Figure 1 chronicles changes in life expectancy, population, and GDP per capita between 1952 and 2007 across different continents, showcasing differences in growth patterns, indicative of an uneven distribution.
-
 
 **Figure 1: Exploratory Data Analysis (EDA) on [`gapminder`](https://www.gapminder.org/) dataset**
 
-![](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
+![eda](https://user-images.githubusercontent.com/82998596/154385333-9d183481-02c3-419b-b139-108604ecb058.png)
 
 ## Research Questions being explored
 
