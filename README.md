@@ -12,49 +12,28 @@ status](https://img.shields.io/github/license/UBC-MDS/our_changing_world)
 
 ## Motivation
 
-Our role: Data scientist consultancy firm <br> *Target audience:
-Governments, International Organizations, Researchers, and Policymakers*
+**Our role:** Data scientist consultancy firm 
 
-The world as we know today has dramatically changed over the past
-several decades. Global population has increased from 2.4 billion to 6.3
-billion between 1952 and 2007. Median global life expectancy, which
-stood at 45.1 years in 1952 has dramatically risen to 71.9 years in
-2007. Between the same time period, global per-capita Gross Domestic
-Product (GDP) has also grown from USD 1,969 to USD 6,124.
+**Target audience:** Governments, International Organizations, Researchers, and Policymakers
 
-However, the world still faces important challenges. There are
-significant differences in several global development indicators across
-regions. For example, the median life expectancy in Africa stood at 52.9
-years, compared to Europe at 78.6 years in 2007. Despite significant
-growth in per-capita GDP over the years, there continues to be an
-unequal distribution of wealth, with Democratic Republic of Congo having
-a per-capita GDP of USD 277.5, compared to Norway which had a per-capita
-GDP of 49,357.19 in 2007.
+The world that we live in has dramatically changed over the past several decades. Global population has increased from 2.4 billion to 6.3 billion between 1952 and 2007. Median global life expectancy, which stood at 45.1 years in 1952 has dramatically risen to 71.9 years in 2007. Between the same time period, global per-capita Gross Domestic Product (GDP) has also grown from USD 1,969 to USD 6,124, both in 2007 purchasing power parity (PPP) terms.
 
-In order to tackle global level problems of poverty, inequality, and
-access to health, there needs to be an improved understanding of our
-world through data. Within the ambit of the Sustainable Development
-Goals (SDGs), there is a growing need for production, usage, and
-understanding of statistics and other information about socio-economic
+However, the world continues to face important challenges. There are significant differences in several global development indicators across regions. For example, the median life expectancy in Africa stood at 52.9 years, compared to Europe at 78.6 years in 2007. Despite significant
+growth in per-capita GDP over the years, there continues to be an unequal distribution of wealth, with Democratic Republic of Congo having a per-capita GDP of USD 277.5 in 2007 (PPP adjusted), compared to Norway which had a per-capita
+GDP of 49,357.19 in 2007 (PPP adjusted).
+
+In order to tackle global level problems of poverty, inequality, and access to health, there needs to be an improved understanding of our world through data. Within the ambit of the Sustainable Development Goals (SDGs), there is a growing need for production, usage, and understanding of statistics and other information about socio-economic
 development at national, regional, and global levels.
 
-This dashboard was created with the objective of making such pertinent
-fact-based data available to the world in a comprehensible format using
-customizable visualization of global development statistics using data
-from the **Gapminder Foundation**. The goal is to help governments,
-international organizations, researchers, and policymakers draw
-evidence-based conclusions about the state of the world as a first step
-towards addressing global challenges outlined in the SDGs.
+This dashboard was created with the objective of making such pertinent fact-based data available to the world in a comprehensible format using customizable visualization of global development statistics using data
+from Gapminder Foundation: [`gapminder`](https://www.gapminder.org/). The goal is to help governments, international organizations, researchers, and policymakers draw evidence-based conclusions about the state of the world as a first step towards addressing global challenges outlined in the SDGs.
 
 ## Data Description
 
-The dataset used is [`gapminder`](https://www.gapminder.org/) which
-includes 1704 rows of entries and 6 features (`country`, `continent`,
-`year`, `lifeExp`, `pop`, `gdpPercap`). Basically, it describes how the
-globe (142 countries) has changed spanning from 1952 to 2007 in the
-aspects of life expectancy, population and economy. As shown in
-`Tabel 1`, the summarized statics of the dataset tell of huge gaps in
-all of 3 dimensions.
+The dataset used in this project, [`gapminder`](https://www.gapminder.org/), comprises of 1704 observations and 6 features: `country` (Country), `continent`  (Continent), `year` (Year), `lifeExp` (Life Expectancy), `pop` (Population), and `gdpPercap` (GDP per capita). It tracks changes across 142 countries from 1952 to 2007 across three variables: Life expectancy, Population and GDP per capita, subject to data availability. Table 1 presents summary statistics for these three variables in the [`gapminder`](https://www.gapminder.org/) dataset.
+
+
+**Table 1: Summary of numeric features in the [`gapminder`](https://www.gapminder.org/) dataset**
 
 |         | Life expectancy | Population | GDP per capita |
 |:--------|:---------------:|:----------:|:--------------:|
@@ -65,55 +44,35 @@ all of 3 dimensions.
 | 3rd Qu. |      70.85      | 1.959e+07  |     9325.5     |
 | Max.    |      82.60      | 1.319e+09  |    113523.1    |
 
-Table 1: Summary of numeric features of the dataset
 
-`Figure 1` also shows the tremendous changes of these 3 features over
-last 50 years. To be more specific, all the continents have extended
-longevity and experienced population and economic booms.
+Figure 1 chronicles changes in life expectancy, population, and GDP per capita between 1952 and 2007 across different continents, showcasing differences in growth patterns, indicative of an uneven distribution.
 
-![eda](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
 
-Figure 1: EDA analysis on `Gapminder`
+**Figure 1: Exploratory Data Analysis (EDA) on [`gapminder`](https://www.gapminder.org/) dataset**
+
+![](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
 
 ## Research Questions being explored
 
-Salma is an economist with the World Bank, a large multi-lateral
-international development organization who wants to answer three
-research questions:
+This project would help answer questions pertaining to trends in the three numerical features in our dataset. 
 
-1.  How has global population grown between 1952 and 2007 across
-    different geographies (both country and continent level)?
-2.  How has per-capita GDP (in USD) changed across the world, and is
-    there a skewed distribution across geographies (both country and
-    continent level), indicating inequality?
-3.  How has median life expectancy (in years) evolved over time across
-    the world, and has the growth rate been different across geographies
-    (both country and continent level)?
+For example, let us assume that Salma is an economist with the World Bank, a large multi-lateral international development organization. She wants to answer the following three research questions:
 
-While her overall objective is to identify factors that explain growth
-and inequities for these three variables and devise global policies that
-can address these inequalities, the three research questions stated
-above serve as a starting point, permitting the conduct exploratory data
-analysis to understand general trends over time.
+1.  How has global population grown between 1952 and 2007 across different geographies (both country and continent level)?
 
-When Salma logs onto the “Our Changing World!” app, she will be able to
-see a dynamic visualization of the evolution of these three indicators
-across countries and by continent. By filtering across countries and
-years, she can conduct country-level or continent-level comparisons
-which will facilitate ranking countries on these indicators. Noticing
-inequalities across regions, she hypothesizes that growth in GDP and
-life expectancy is slower in some economies due to poor governance and
-corruption. Given that information on poor governance and corruption are
-not captured in her research dataset, Salma decides that she needs to
-conduct a follow-on data collection activity on these two variables to
-estimate a causal impact of poor governance and corruption on population
+2.  How has per-capita GDP (in USD) changed across the world between 1952 and 2007. Also, is there a skewed distribution across geographies (both country and continent level), indicating inequality?
+
+3.  How has median life expectancy (in years) evolved between 1952 and 2007 across the world, and has the growth rate been different across geographies (both country and continent level)?
+
+While her overall objective is to identify the factors that explain growth and inequities for these three variables, the three research questions stated above serve as a starting point, permitting the conduct exploratory data analysis to understand general trends over time and would assist in devising global policies that can address these inequalities.
+
+When Salma logs onto the “Our Changing World!” app, she will be able to see a dynamic visualization of the evolution of these three indicators across countries and by continent. By filtering across countries and years, she can conduct country-level or continent-level comparisons which will facilitate ranking countries on these indicators. Noticing
+inequalities across regions, she hypothesizes that growth in GDP and life expectancy is slower in some economies due to poor governance and corruption. Given that information on poor governance and corruption are not captured in her research dataset, Salma decides that she needs to conduct a follow-on data collection activity on these two variables to estimate a causal impact of poor governance and corruption on population
 growth, increase in GDP per capita, and rise in median life expectancy.
 
 ## Running locally
 
-To run a development instance locally, create a virtualenv, install the
-requirements from `requirements.txt` and launch `app.py` using the
-Python executable from the virtualenv.
+To run a development instance locally, create a virtualenv, install the requirements from `requirements.txt` and launch `app.py` using the Python executable from the virtualenv.
 
 ## Deploying on Heroku
 
