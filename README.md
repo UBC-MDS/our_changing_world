@@ -68,6 +68,16 @@ When Salma logs onto the “Our Changing World!” app, she will be able to see 
 inequalities across regions, she hypothesizes that growth in GDP and life expectancy is slower in some economies due to poor governance and corruption. Given that information on poor governance and corruption are not captured in her research dataset, Salma decides that she needs to conduct a follow-on data collection activity on these two variables to estimate a causal impact of poor governance and corruption on population
 growth, increase in GDP per capita, and rise in median life expectancy.
 
+## Description of "Our Changing World" App
+
+The app consists of 4 main sections: "control" panel at the upper left section, and 3 plot sections. 
+
+In the "control" section, one can choose the subject in which he/she is interested from the choice of Population, Life Expectancy, and GDP per Capita. One can also specify the year by using the scroll bar.  
+
+The app shows 3 different types of plots: (1) world map with data for each countries (upper right section), (2) bar chart showing the world ranking (lower left section), and (3) time-series plot for each continent. All these plots are automatically updated when new inputs are entered in the "control" section.  
+
+![](imgs/app_design.png)
+
 ## Running locally
 
 To run a development instance locally, create a virtualenv, install the requirements from `requirements.txt` and launch `app.py` using the Python executable from the virtualenv.
