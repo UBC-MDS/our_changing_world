@@ -1,4 +1,4 @@
-# Proposal for Our Changing Wordl Dashboard
+# Proposal for Our Changing World Dashboard
 
 ## Motivation
 
