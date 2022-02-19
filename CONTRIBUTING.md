@@ -40,10 +40,10 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `features_creator` for local development.
+Ready to contribute? Here's how to set up `our_changing_world` for local development.
 
-1. Download a copy of `features_creator` locally.
-2. Install `features_creator` using `poetry`:
+1. Download a copy of `our_changing_world` locally.
+2. Install `our_changing_world` using `poetry`:
 
     ```console
     $ poetry install
@@ -69,5 +69,5 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `features_creator` project is released with a 
+Please note that the `our_changing_world` project is released with a 
 Code of Conduct. By contributing to this project you agree to abide by its terms.
