@@ -40,7 +40,7 @@ CD,-4.038333,21.758664,"Congo, Dem. Rep.",OR,43.804133,-120.554201,Oregon
 CF,6.611111,20.939444,Central African Republic,PA,41.203322,-77.194525,Pennsylvania'
 CG,-0.228021,15.827659,"Congo, Rep.",PR,18.220833,-66.590149,Puerto Rico
 CH,46.818188,8.227512,Switzerland,RI,41.580095,-71.477429,Rhode Island
-CI,7.539989,-5.54708,"Cote d'Ivoire",SC,33.836081,-81.163725,South Carolina
+CI,7.539989,-5.54708,Cote d'Ivoire,SC,33.836081,-81.163725,South Carolina
 CK,-21.236736,-159.777671,Cook Islands,SD,43.969515,-99.901813,South Dakota
 CL,-35.675147,-71.542969,Chile,TN,35.517491,-86.580447,Tennessee
 CM,7.369722,12.354722,Cameroon,TX,31.968599,-99.901813,Texas
@@ -117,8 +117,8 @@ KH,12.565679,104.990963,Cambodia,,,,
 KI,-3.370417,-168.734039,Kiribati,,,,
 KM,-11.875001,43.872219,Comoros,,,,
 KN,17.357822,-62.782998,Saint Kitts and Nevis,,,,
-KP,40.339852,127.510093,"Korea, Rep.",,,,
-KR,35.907757,127.766922,"Korea, Dem. Rep.",,,,
+KP,40.339852,127.510093,"Korea, Dem. Rep.",,,,
+KR,35.907757,127.766922,"Korea, Rep.",,,,
 KW,29.31166,47.481766,Kuwait,,,,
 KY,19.513469,-80.566956,Cayman Islands,,,,
 KZ,48.019573,66.923684,Kazakhstan,,,,
