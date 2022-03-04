@@ -163,8 +163,10 @@ app.layout = dbc.Container(
     Input("target-filter", "value"),
 )
 def plot_world_trend(year, y_axis):
-    df = gapminder.groupby(["year", "continent"]).sum().reset_index()
-
+    if y_axis == "pop":
+        df = gapminder.groupby(["year", "continent"]).sum().reset_index()
+    else:
+        df = gapminder.groupby(["year", "continent"]).mean().reset_index()
     line = (
         alt.Chart(df)
         .mark_line()
