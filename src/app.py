@@ -29,7 +29,7 @@ years = gapminder.year.unique()
 ###### Header ########
 header = html.H4(
     "Our Changing World!",
-    className="h1 bg-secondary bg-gradient-secondary p-2 mb-2 text-center",
+    className="h1 bg-secondary bg-gradient-secondary p-2 mb-2 text-white text-center",
 )
 ###### App Layout #######
 
@@ -169,7 +169,12 @@ def plot_world_trend(year, y_axis):
         alt.Chart(df)
         .mark_line()
         .encode(
-            alt.X("year", scale=alt.Scale(domain=(1950, 2007)), title="Year", axis=alt.Axis(format='')),
+            alt.X(
+                "year",
+                scale=alt.Scale(domain=(1950, 2007)),
+                title="Year",
+                axis=alt.Axis(format=""),
+            ),
             alt.Y(
                 y_axis,
                 type="quantitative",
