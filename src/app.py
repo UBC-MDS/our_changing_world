@@ -14,7 +14,9 @@ dbc_css = (
     "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates@V1.0.4/dbc.min.css"
 )
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL, dbc_css])
+app = Dash(
+    __name__, external_stylesheets=[dbc.themes.SKETCHY, dbc.themes.CERULEAN, dbc_css]
+)
 
 # create server for heroku
 server = app.server
@@ -26,8 +28,8 @@ years = gapminder.year.unique()
 
 ###### Header ########
 header = html.H4(
-    "Our Changing World",
-    className="h1 bg-secondary bg-gradient-secondary text-white p-2 mb-2 text-center",
+    "Our Changing World!",
+    className="h1 bg-secondary bg-gradient-secondary p-2 mb-2 text-center",
 )
 ###### App Layout #######
 
@@ -78,46 +80,39 @@ filter_layout = dbc.Card(
         html.Br(),
     ],
     body=True,
+    color="light",
 )
 
 ## Plot layout
-
 world_map = html.Iframe(
     id="world-map",
-    className="dbc",
-    style={"width": "200%", "height": "500px", "padding-right": "10px"},
+    className="embed-responsive embed-responsive-item",
+    style={"width": "100%", "height": "500px", "padding-right": "10px"},
 )
 
 
-world_ranking = dbc.Card(
+world_ranking = html.Div(
     [
-        html.Div(
-            [
-                html.H2("World Ranking"),
-                html.Br(),
-                html.Iframe(
-                    id="world-ranking",
-                    style={"width": "200%", "height": "500px", "padding-left": "10px"},
-                ),
-            ]
-        )
+        html.H2("World Ranking"),
+        html.Br(),
+        html.Iframe(
+            id="world-ranking",
+            className="embed-responsive embed-responsive-item",
+            style={"width": "100%", "height": "500px", "padding-left": "10px"},
+        ),
     ]
 )
 
-
-world_trend = dbc.Card(
+world_trend = html.Div(
     [
-        html.Div(
-            [
-                ### Plot 4 goes here
-                html.H2("World Trend"),
-                html.Br(),
-                html.Iframe(
-                    id="world-trend",
-                    style={"width": "200%", "height": "500px", "padding-right": "10px"},
-                ),
-            ]
-        )
+        ### Plot 4 goes here
+        html.H2("World Trend"),
+        html.Br(),
+        html.Iframe(
+            id="world-trend",
+            className="embed-responsive embed-responsive-item",
+            style={"width": "100%", "height": "500px", "padding-right": "10px"},
+        ),
     ]
 )
 
@@ -127,24 +122,38 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 header,
-                dbc.Col([filter_layout, ThemeChangerAIO(aio_id="theme")], width=4),
+                dbc.Col(
+                    [
+                        filter_layout,
+                        ThemeChangerAIO(
+                            aio_id="theme", radio_props={"value": dbc.themes.SKETCHY}
+                        ),
+                    ],
+                    className="col-sm-4",
+                ),
                 dbc.Col(world_map),
             ],
-            justify="evenly",
+            justify="center",
             className="mb-4",
         ),
         dbc.Row(
             [
-                dbc.Col(world_ranking, width=6),
-                dbc.Col(world_trend),
+                dbc.Col(world_ranking, className="col-sm-6"),
+                dbc.Col(world_trend, className="col-sm-6"),
             ],
-            justify="evenly",
+            justify="center",
             className="mb-4",
             align="start",
         ),
     ],
-    className="pad-row",
+    className="g-0",
     fluid=True,
+    style={
+        "height": "100vh",
+        "align": "center",
+        "padding-left": "10px",
+        "padding-right": "10px",
+    },
 )
 
 # Set up callback for World Trend
@@ -200,7 +209,7 @@ def plot_world_ranking(year, y_axis):
         .encode(
             alt.X(
                 y_axis,
-                title="pop"
+                title="Population"
                 if y_axis == "pop"
                 else ("Life Expectancy" if y_axis == "lifeExp" else "GDP per Capita"),
             ),
