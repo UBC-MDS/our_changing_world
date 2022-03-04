@@ -1,7 +1,10 @@
 pandas
 plotly
+plotly_express
 altair
 dash
 numpy
 dash-bootstrap-components
+dash_bootstrap_templates
 gunicorn
+vega_datasets
