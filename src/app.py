@@ -16,6 +16,9 @@ dbc_css = (
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL, dbc_css])
 
+# create server for heroku
+server = app.server
+
 # create filters
 # gapminder datset
 gapminder = px.data.gapminder()
