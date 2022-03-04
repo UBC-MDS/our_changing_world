@@ -157,7 +157,7 @@ def plot_world_trend(year, y_axis):
         alt.Chart(df)
         .mark_line()
         .encode(
-            alt.X("year", scale=alt.Scale(domain=(1950, 2007)), title="Year"),
+            alt.X("year", scale=alt.Scale(domain=(1950, 2007)), title="Year", axis=alt.Axis(format='')),
             alt.Y(
                 y_axis,
                 type="quantitative",
