@@ -165,7 +165,10 @@ def plot_world_trend(year, y_axis):
                 type="quantitative",
                 title="Population"
                 if y_axis == "pop"
-                else ("Life Expectancy" if y_axis == "lifeExp" else "GDP per Capita"),
+                else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
+                axis=alt.Axis(format='$.0f')
+                if y_axis == "gdpPercap"
+                else (alt.Axis(format='.0f')),
             ),
             color="continent",
         )
