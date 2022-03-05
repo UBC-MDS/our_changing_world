@@ -33,10 +33,12 @@ To ensure interactivity, all plots are automatically updated when new selections
 
 3. In the map, the countries values could be presented as a heatmap which would make the visual even more appealing.
 
-4. A tooltip could be added to the map and the "World Trend" chart to display values at each point of the graph.
+4. A tooltip could be added to the "World Trend" chart to display values at each point of the graph.
 
 5. Whilst a herculean task, it would be nice to have two separate levels of analysis: one at the regional level, and another at the country level. At present our charts are fixed to either being at the country or regional level. It would be beneficial for the user to select this unit of analysis.
 
 6. On a micro level, we could try and figure out new designs that would improve the aesthetic layout of the graph across different machines (PC/Mac/Linux/Android/Apple) so that the dimensions are customized by device, prevented crowding and more user-friendly navigability and display. 
 
-7. Finally, the field of global development is vast, and the Sustainable Development Goals track over 300 indicators. In an ideal world, we would have more indicators to further enhance our understanding of the world that we live in!
+7. The bubbles for life expectancy on the map look very similar for a given year, but vary across years. Perhaps bubble sizes should be adjusted to different ranges.
+
+8. Finally, the field of global development is vast, and the Sustainable Development Goals track over 300 indicators. In an ideal world, we would have more indicators to further enhance our understanding of the world that we live in!
