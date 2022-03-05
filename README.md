@@ -71,6 +71,8 @@ To download the contents of this GitHub page on to your local machine follow the
 
 6. Launch ***app.py*** using the Python executable from the virtualenv: `python src/app.py`
 
+7. Using any modern web browser, visit http://127.0.0.1:9090/ to access the app.
+
 **Note that for Steps 3 - 6 to work smoothly, you have to be in the our_changing_world directory.**
 
 ## Get involved
