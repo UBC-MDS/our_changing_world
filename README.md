@@ -74,10 +74,6 @@ To download the contents of this GitHub page on to your local machine follow the
 
 **Note that for Steps 3 - 6 to work smoothly, you have to be in the our_changing_world directory.**
 
-## Deploying on Heroku
-
-Then, follow [these instructions](link_to_url) to deploy the image on Heroku.
-
 ## Get involved
 
 If you have feedback for improvement (and we bet you do) or suggestions on any areas that we haven't yet thought of (and here we are certain you can), then please check out our [Contributing Guidelines](https://github.com/UBC-MDS/our_changing_world/blob/main/CONTRIBUTING.md).
