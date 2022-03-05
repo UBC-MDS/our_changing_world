@@ -274,7 +274,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         .project(type="equalEarth")
     )
 
-    df_pos = pd.read_csv("../data/world_country.csv")
+    df_pos = pd.read_csv("data/world_country.csv")
     df_pos = df_pos.iloc[:, 1:4]
     df_pos.rename(columns={"latitude": "lat", "longitude": "lon"}, inplace=True)
 
