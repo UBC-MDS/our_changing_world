@@ -19,7 +19,6 @@ This document (the README file) is a hub to give you some information about the 
 * [Contributors](#contributors)
 * [Description of "Our Changing World" App](#description-of-our-changing-world-app)
 * [Downloading and Running locally](#downloading-and-running-locally)
-* [Deploying on Heroku](#deploying-on-heroku)
 * [Get Involved](#get-involved)
 
 ## About this project
