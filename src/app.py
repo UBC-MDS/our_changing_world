@@ -223,7 +223,10 @@ def plot_world_ranking(year, y_axis):
                 y_axis,
                 title="Population"
                 if y_axis == "pop"
-                else ("Life Expectancy" if y_axis == "lifeExp" else "GDP per Capita"),
+                else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
+                axis=alt.Axis(format='$,d')
+                if y_axis == "gdpPercap"
+                else (alt.Axis(format=',d')),
             ),
             alt.Y(
                 "country",
@@ -289,6 +292,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
             latitude="lat:Q",
             size=alt.Size(col, legend=None, scale=alt.Scale(range=[0, max_scale])),
             color=alt.Color("continent", legend=None),
+            tooltip=['country', col]
         )
     )
 
