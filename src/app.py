@@ -172,10 +172,8 @@ def plot_world_trend(year, y_axis):
         .mark_line()
         .encode(
             alt.X(
-                "year",
-                scale=alt.Scale(domain=(1950, 2007)),
+                "year:N",
                 title="Year",
-                axis=alt.Axis(format=""),
             ),
             alt.Y(
                 y_axis,
@@ -183,9 +181,9 @@ def plot_world_trend(year, y_axis):
                 title="Population"
                 if y_axis == "pop"
                 else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
-                axis=alt.Axis(format='$.0f')
+                axis=alt.Axis(format='$,d')
                 if y_axis == "gdpPercap"
-                else (alt.Axis(format='.0f')),
+                else (alt.Axis(format=',d')),
             ),
             color="continent",
         )
@@ -193,12 +191,16 @@ def plot_world_trend(year, y_axis):
     vline = (
         alt.Chart(pd.DataFrame({"year": [year]}))
         .mark_rule(strokeDash=[10, 10])
-        .encode(x="year")
+        .encode(x="year:N")
     )
     chart = line + vline
     chart_final = chart.configure_axis(
         labelFontSize=14, titleFontSize=20
-    ).configure_legend(titleFontSize=14)
+    ).configure_legend(
+      titleFontSize=14
+      ).properties(
+        width=450,
+        height=400)
 
     return chart_final.to_html()
 
@@ -272,7 +274,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         .project(type="equalEarth")
     )
 
-    df_pos = pd.read_csv("data/world_country.csv")
+    df_pos = pd.read_csv("../data/world_country.csv")
     df_pos = df_pos.iloc[:, 1:4]
     df_pos.rename(columns={"latitude": "lat", "longitude": "lon"}, inplace=True)
 
