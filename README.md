@@ -60,7 +60,7 @@ All plots are automatically updated when new selections are made in the "What do
 
 To download the contents of this GitHub page on to your local machine follow these steps:
 
-1. Copy and paste the following link: git clone https://github.com/UBC-MDS/our_changing_world.git to your Terminal. 
+1. Copy and paste the following link: `git clone https://github.com/UBC-MDS/our_changing_world.git` to your Terminal. 
 
 2. On your terminal, type: `cd our_changing_world`.
 
@@ -76,8 +76,7 @@ To download the contents of this GitHub page on to your local machine follow the
 
 ## Deploying on Heroku
 
-Use `make image` to create a Docker image. Then, follow [these
-instructions](link_to_url) to deploy the image on Heroku.
+Then, follow [these instructions](link_to_url) to deploy the image on Heroku.
 
 ## Get involved
 
