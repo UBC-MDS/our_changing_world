@@ -43,10 +43,10 @@ If you are proposing a feature:
 Ready to contribute? Here's how to set up `our_changing_world` for local development.
 
 1. Download a copy of `our_changing_world` locally.
-2. Install `our_changing_world` using `poetry`:
+2. Install required libraries for our project `our_changing_world` using `pip`:
 
     ```console
-    $ poetry install
+    $ pip install -r requirements.txt
     ```
 
 3. Use `git` (or similar) to create a branch for local development and make your changes:
