@@ -18,6 +18,8 @@ app = Dash(
     __name__, external_stylesheets=[dbc.themes.SKETCHY, dbc.themes.CERULEAN, dbc_css]
 )
 
+app.title = "Our Changing World!"
+
 # create server for heroku
 server = app.server
 
