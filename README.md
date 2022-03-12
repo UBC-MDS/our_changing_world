@@ -60,7 +60,15 @@ All plots are automatically updated when new selections are made in the "What do
 
 ### Option 1: Using `docker`
 
-To run this analysis using Docker, clone/download this repository, use the command line to navigate to the root of this project on your computer, and then type the following.
+To run this analysis using Docker, clone/download this repository, use the command line to navigate to the root of this project on your computer, and run with `docker-compose`.
+
+**Steps -** 
+
+1. Copy and paste the following link: `git clone https://github.com/UBC-MDS/our_changing_world.git` to your Terminal. 
+
+2. On your terminal, type: `cd our_changing_world`.
+
+3. Run the following command in your terminal.
 
 ```bash
 docker-compose up
