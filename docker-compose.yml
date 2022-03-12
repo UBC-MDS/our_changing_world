@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3'
+services:
+  # main application
+  myapp:
+    container_name: our_changing_world
+    build:
+      .
+    ports:
+      - "8000:8000"

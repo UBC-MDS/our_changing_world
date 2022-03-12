@@ -57,6 +57,19 @@ All plots are automatically updated when new selections are made in the "What do
 
 ## Downloading and Running Locally
 
+
+### Option 1: Using `docker`
+
+To run this analysis using Docker, clone/download this repository, use the command line to navigate to the root of this project on your computer, and then type the following.
+
+```bash
+docker-compose up
+```
+
+A web server will be started at port 8000 to serve the app. App can be accessed in local machine by accessing [http://localhost:8000](http://localhost:8000) in any of the modern web browser.
+
+### Option 2: Using `conda` in local machine
+
 To download the contents of this GitHub page on to your local machine follow these steps:
 
 1. Copy and paste the following link: `git clone https://github.com/UBC-MDS/our_changing_world.git` to your Terminal. 
