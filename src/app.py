@@ -226,9 +226,9 @@ def plot_world_ranking(year, y_axis):
                 title="Population"
                 if y_axis == "pop"
                 else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
-                axis=alt.Axis(format='$,d')
+                axis=alt.Axis(format='$,d', orient='top')
                 if y_axis == "gdpPercap"
-                else (alt.Axis(format=',d')),
+                else (alt.Axis(format=',d', orient='top')),
             ),
             alt.Y(
                 "country",
