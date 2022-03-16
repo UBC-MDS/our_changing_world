@@ -293,7 +293,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
             longitude="lon:Q",
             latitude="lat:Q",
             size=alt.Size(col, legend=None, scale=alt.Scale(range=[0, max_scale])),
-            color=alt.Color("continent", legend=None),
+            color=alt.Color("continent", legend=alt.Legend(title='Continent')),
             tooltip=['country', col]
         )
     )
@@ -310,15 +310,16 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         )
     )
 
+    text = 'World Overview of ' + para
     text_para = (
         alt.Chart({"values": [{}]})
         .mark_text(align="left", baseline="top")
         .encode(
-            x=alt.value(70),
+            x=alt.value(20),
             y=alt.value(10),
             size=alt.value(15),
             color=alt.value("gray"),
-            text=alt.value(para),
+            text=alt.value(text),
         )
     )
 
