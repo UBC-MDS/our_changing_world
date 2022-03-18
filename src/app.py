@@ -3,7 +3,7 @@ import pandas as pd
 import dash
 from dash import Dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
-from dash_bootstrap_templates import ThemeChangerAIO, template_from_url
+from dash_bootstrap_templates import ThemeChangerAIO
 
 import altair as alt
 import plotly_express as px
@@ -22,6 +22,9 @@ app.title = "Our Changing World!"
 
 # create server for heroku
 server = app.server
+
+# set altair theme
+alt.themes.enable("urbaninstitute")
 
 # create filters
 # gapminder datset
@@ -47,9 +50,7 @@ target_filter = html.Div(
                 {"label": "GDP per Capita", "value": "gdpPercap"},
             ],
             value="pop",
-            inline=False,
-            labelCheckedClassName="text-success",
-            inputCheckedClassName="border border-success bg-success",
+            inline=True,
         ),
     ],
     className="mb-4",
@@ -83,6 +84,7 @@ filter_layout = dbc.Card(
     ],
     body=True,
     color="light",
+    className="card border-0",
 )
 
 ## Plot layout
@@ -118,6 +120,20 @@ world_trend = html.Div(
     ]
 )
 
+
+life_exp_vs_gdp = html.Div(
+    [
+        ### Plot 4 goes here
+        html.H2("Life Expectancy vs GDP per Capita"),
+        html.Br(),
+        html.Iframe(
+            id="life-exp-vs-gdp",
+            className="embed-responsive embed-responsive-item",
+            style={"width": "100%", "height": "500px", "padding-right": "10px"},
+        ),
+    ]
+)
+
 # App Layout
 app.layout = dbc.Container(
     [
@@ -140,13 +156,13 @@ app.layout = dbc.Container(
         ),
         dbc.Row(
             [
-                dbc.Col(world_ranking, className="col-sm-6"),
+                dbc.Col(life_exp_vs_gdp, className="col-sm-6"),
                 dbc.Col(world_trend, className="col-sm-6"),
             ],
             justify="center",
             className="mb-4",
-            align="start",
         ),
+        dbc.Row(world_ranking, className="mb-4", align="end"),
     ],
     className="g-0",
     fluid=True,
@@ -169,6 +185,8 @@ def plot_world_trend(year, y_axis):
         df = gapminder.groupby(["year", "continent"]).sum().reset_index()
     else:
         df = gapminder.groupby(["year", "continent"]).mean().reset_index()
+
+    selection = alt.selection_multi(fields=["continent"], bind="legend")
     line = (
         alt.Chart(df)
         .mark_line()
@@ -182,12 +200,17 @@ def plot_world_trend(year, y_axis):
                 type="quantitative",
                 title="Population"
                 if y_axis == "pop"
-                else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
-                axis=alt.Axis(format='$,d')
+                else (
+                    "Life Expectancy (years)"
+                    if y_axis == "lifeExp"
+                    else "GDP per Capita (USD)"
+                ),
+                axis=alt.Axis(format="$,d")
                 if y_axis == "gdpPercap"
-                else (alt.Axis(format=',d')),
+                else (alt.Axis(format=",d")),
             ),
             color="continent",
+            opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
         )
     )
     vline = (
@@ -196,13 +219,13 @@ def plot_world_trend(year, y_axis):
         .encode(x="year:N")
     )
     chart = line + vline
-    chart_final = chart.configure_axis(
-        labelFontSize=14, titleFontSize=20
-    ).configure_legend(
-      titleFontSize=14
-      ).properties(
-        width=450,
-        height=400)
+    chart_final = (
+        chart.configure_axis(labelFontSize=14, titleFontSize=20)
+        .configure_legend(titleFontSize=14)
+        .properties(width=600, height=400)
+    )
+
+    chart_final = chart_final.add_selection(selection).interactive()
 
     return chart_final.to_html()
 
@@ -217,6 +240,7 @@ def plot_world_ranking(year, y_axis):
     year = year
     df = gapminder.query("year == @year").sort_values(by=y_axis, ascending=False)
     df["ranking"] = [f"#{i+1}" for i in range(142)]
+    selection = alt.selection_multi(fields=["continent"], bind="legend")
     bar = (
         alt.Chart(df)
         .mark_bar()
@@ -225,10 +249,14 @@ def plot_world_ranking(year, y_axis):
                 y_axis,
                 title="Population"
                 if y_axis == "pop"
-                else ("Life Expectancy (years)" if y_axis == "lifeExp" else "GDP per Capita (USD)"),
-                axis=alt.Axis(format='$,d', orient='top')
+                else (
+                    "Life Expectancy (years)"
+                    if y_axis == "lifeExp"
+                    else "GDP per Capita (USD)"
+                ),
+                axis=alt.Axis(format="$,d", orient="top")
                 if y_axis == "gdpPercap"
-                else (alt.Axis(format=',d', orient='top')),
+                else (alt.Axis(format=",d", orient="top")),
             ),
             alt.Y(
                 "country",
@@ -236,6 +264,7 @@ def plot_world_ranking(year, y_axis):
                 title="Country",
             ),
             color=alt.Color("continent", legend=None),
+            opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
             tooltip=y_axis,
         )
     )
@@ -244,6 +273,8 @@ def plot_world_ranking(year, y_axis):
 
     chart = bar + text
     chart_final = chart.configure_axis(labelFontSize=14, titleFontSize=20)
+
+    chart_final = chart_final.add_selection(selection).interactive()
 
     return chart_final.to_html()
 
@@ -271,12 +302,33 @@ def get_para(year, col):
     Input("target-filter", "value"),
 )
 def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
-    world_map = alt.topo_feature(data.world_110m.url, "countries")
+    # world_map = alt.topo_feature(data.world_110m.url, "countries")
+    # background = (
+    #     alt.Chart(world_map)
+    #     .mark_geoshape(fill="lightgray", stroke="white", color='continent:N')
+    #     .properties(width=1000, height=400)
+    #     .project(type="equalEarth")
+    # )
+
+    # Data generators for the background
+    sphere = alt.sphere()
+    graticule = alt.graticule()
+
+    # Source of land data
+    source = alt.topo_feature(data.world_110m.url, "countries")
+
+    # Layering and configuring the components
     background = (
-        alt.Chart(world_map)
-        .mark_geoshape(fill="lightgray", stroke="white")
-        .properties(width=1000, height=400)
-        .project(type="equalEarth")
+        alt.layer(
+            alt.Chart(sphere).mark_geoshape(fill="lightblue", opacity=0.4),
+            alt.Chart(graticule).mark_geoshape(stroke="white", strokeWidth=0.5),
+            alt.Chart(source).mark_geoshape(
+                fill="ForestGreen", stroke="black", opacity=0.1
+            ),
+        )
+        .project("naturalEarth1")
+        .properties(width=800, height=400)
+        .configure_view(stroke=None)
     )
 
     df_pos = pd.read_csv("data/world_country.csv")
@@ -286,6 +338,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
     gapminder_pos = gapminder.merge(df_pos)
     para, max_scale = get_para(year, col)
 
+    selection = alt.selection_multi(fields=["continent"], bind="legend")
     points = (
         alt.Chart(gapminder_pos[gapminder_pos["year"] == year])
         .mark_circle()
@@ -293,16 +346,18 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
             longitude="lon:Q",
             latitude="lat:Q",
             size=alt.Size(col, legend=None, scale=alt.Scale(range=[0, max_scale])),
-            color=alt.Color("continent", legend=alt.Legend(title='Continent')),
-            tooltip=['country', col]
+            color=alt.Color("continent", legend=alt.Legend(title="Continent")),
+            tooltip=["country", col],
+            opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
         )
+        .add_selection(selection)
     )
 
     text_year = (
         alt.Chart({"values": [{}]})
         .mark_text(align="left", baseline="top")
         .encode(
-            x=alt.value(870),
+            x=alt.value(900),
             y=alt.value(10),
             size=alt.value(50),
             color=alt.value("lightgray"),
@@ -310,7 +365,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         )
     )
 
-    text = 'World Overview of ' + para
+    text = "World Overview of " + para
     text_para = (
         alt.Chart({"values": [{}]})
         .mark_text(align="left", baseline="top")
@@ -324,6 +379,57 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
     )
 
     return (background + points + text_year + text_para).to_html()
+
+
+@app.callback(Output("life-exp-vs-gdp", "srcDoc"), Input("year-slider", "value"))
+def bubble_chart(year):
+    """Create bubble chart from gapminder data
+
+    Args:
+        year (numeric): Year of interest
+    """
+    df = gapminder[gapminder.year == year].drop("year", axis=1)
+
+    df = (
+        df.assign(gdpPercap=round(df.gdpPercap, 0))
+        .assign(pop=round(df["pop"] / 1000000, 2))
+        .assign(lifeExp=round(df.lifeExp, 1))
+        .sort_values("pop", ascending=False)
+    )
+
+    selection = alt.selection_multi(fields=["continent"], bind="legend")
+    plot = (
+        alt.Chart(df)
+        .mark_point(
+            filled=True,
+        )
+        .encode(
+            alt.X(
+                "gdpPercap:Q",
+                title="GDP per Capita [USD]",
+                scale=alt.Scale(zero=False),
+                axis=alt.Axis(format="$~s"),
+            ),
+            alt.Y(
+                "lifeExp:Q",
+                title="Life Expectancy [Years]",
+                scale=alt.Scale(zero=False),
+            ),
+            alt.Size("pop:Q", scale=alt.Scale(range=[100, 2000]), legend=None),
+            alt.Order("pop:Q", sort="descending"),
+            alt.Color("continent:N", scale=alt.Scale(scheme="dark2")),
+            opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
+            tooltip=[
+                alt.Tooltip("country:N", title="Country"),
+                alt.Tooltip("pop:Q", title="Population (M)"),
+                alt.Tooltip("gdpPercap:Q", title="GDP per Capita (USD)"),
+            ],
+        )
+        .properties(width=600, height=400)
+        .add_selection(selection)
+        .interactive()
+    )
+    return plot.to_html()
 
 
 if __name__ == "__main__":
