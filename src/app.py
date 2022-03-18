@@ -91,7 +91,13 @@ filter_layout = dbc.Card(
 world_map = html.Iframe(
     id="world-map",
     className="embed-responsive embed-responsive-item",
-    style={"width": "100%", "height": "500px", "padding-right": "10px"},
+    sandbox="allow-scripts",
+    style={
+        "width": "100%",
+        "height": "500px",
+        "padding-right": "10px",
+        "border-width": "0px",
+    },
 )
 
 
@@ -101,8 +107,14 @@ world_ranking = html.Div(
         html.Br(),
         html.Iframe(
             id="world-ranking",
+            sandbox="allow-scripts",
             className="embed-responsive embed-responsive-item",
-            style={"width": "100%", "height": "500px", "padding-left": "10px"},
+            style={
+                "width": "100%",
+                "height": "500px",
+                "padding-left": "10px",
+                "border-width": "0px",
+            },
         ),
     ]
 )
@@ -114,8 +126,14 @@ world_trend = html.Div(
         html.Br(),
         html.Iframe(
             id="world-trend",
+            sandbox="allow-scripts",
             className="embed-responsive embed-responsive-item",
-            style={"width": "100%", "height": "500px", "padding-right": "10px"},
+            style={
+                "width": "100%",
+                "height": "500px",
+                "padding-right": "10px",
+                "border-width": "0px",
+            },
         ),
     ]
 )
@@ -128,8 +146,14 @@ life_exp_vs_gdp = html.Div(
         html.Br(),
         html.Iframe(
             id="life-exp-vs-gdp",
+            sandbox="allow-scripts",
             className="embed-responsive embed-responsive-item",
-            style={"width": "100%", "height": "500px", "padding-right": "10px"},
+            style={
+                "width": "100%",
+                "height": "500px",
+                "padding-right": "10px",
+                "border-width": "0px",
+            },
         ),
     ]
 )
