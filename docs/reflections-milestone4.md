@@ -30,3 +30,5 @@
 4. Another futuristic goal would be to allow users to create their own set of customized charts, based on the user's preferences of x and y axis alongside type of graph desired. We could have general layouts for each type of chart that is available in the statistical world, and allow users to create their own visualizations rather than forcing them to only go with the axes we have pre-selected. 
 
 5. Another possible improvement can be using more comprehensive gapminder dataset with more categories. It would be also great to include another tab for country-specific informations.  
+
+6. The bubbles on the world map look similar regarding life expectancy because the gaps of life expectancy among different countries and in different periods change little compared to population and GPD. Maybe, we need to design a function so as to show significant changes in life expectancy with more noticeable changes in the bubble size.
