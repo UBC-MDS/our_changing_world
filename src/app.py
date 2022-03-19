@@ -349,6 +349,26 @@ def plot_world_ranking(year, y_axis):
 
 
 def get_para(year, col):
+"""
+    Get world map parameters
+    
+    Parameters
+    ----------
+    year   : int
+             A year of interest
+    
+    y_axis : string in ['pop', 'lifeExp, 'gdpPercap']
+             A category in gapminder dataset
+    Returns
+    ----------
+    set : (Full name, scale factor)
+    
+    
+    Examples
+    ----------
+    >>> get_para(2002, "pop")
+    """
+
     col_name_dict = {
         "lifeExp": "Life Expectancy",
         "pop": "Population",
@@ -371,6 +391,28 @@ def get_para(year, col):
     Input("target-filter", "value"),
 )
 def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
+"""
+    Plot world map
+    
+    Parameters
+    ----------
+    year   : int
+             A year of interest
+    
+    y_axis : string in ['pop', 'lifeExp, 'gdpPercap']
+             A category in gapminder dataset
+    Returns
+    ----------
+    chart_final : altair.Chart object
+                  An altair object showing a bar chart
+    
+    
+    Examples
+    ----------
+    >>> plot_world(2002, "pop")
+    """
+    
+    # plot the globe as the background
     world_map = alt.topo_feature(data.world_110m.url, "countries")
     background = (
         alt.Chart(world_map)
@@ -378,7 +420,8 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         .properties(width=1000, height=400)
         .project(type="equalEarth")
     )
-
+    
+    # join lat and lon to gapminder respect to countries
     df_pos = pd.read_csv("data/world_country.csv")
     df_pos = df_pos.iloc[:, 1:4]
     df_pos.rename(columns={"latitude": "lat", "longitude": "lon"}, inplace=True)
@@ -386,6 +429,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
     gapminder_pos = gapminder.merge(df_pos)
     para, max_scale = get_para(year, col)
 
+    # plot mark_circle
     selection = alt.selection_multi(fields=["continent"], bind="legend")
     points = (
         alt.Chart(gapminder_pos[gapminder_pos["year"] == year])
