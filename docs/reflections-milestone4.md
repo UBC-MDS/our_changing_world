@@ -31,4 +31,4 @@
 
 5. Another possible improvement can be using more comprehensive gapminder dataset with more categories. It would be also great to include another tab for country-specific informations.  
 
-6. The bubbles on the world map look similar for life expectancy because the gaps of life expectancy across different countries within the same time period changes marginally compared to population and GDP. Perhaps, we need to design a function so as to show significant changes in life expectancy with more noticeable changes in the bubble size.
+6. The bubbles on the world map look similar for life expectancy because the changes in life expectancy across different countries within the same time period is marginal compared to population and GDP. Perhaps, we need to design a function so as to show significant changes in life expectancy with more noticeable changes in the bubble size.
