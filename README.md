@@ -3,6 +3,35 @@
 ![license
 status](https://img.shields.io/github/license/UBC-MDS/our_changing_world)
 
+***Learn more about how global population, life expectancy and per-capita Gross Domestic Product (GDP) have evolved over time***
+
+Link to the dashboard: https://our-changing-world.herokuapp.com/
+
+## Welcome!
+
+First and foremost, a big warm welcome! :balloon::tada: :confetti_ball: :balloon::balloon:
+
+Thank you for visiting the Our Changing World app project repository.
+
+This document (the README file) is a hub to give you some information about the project. You can either get straight to one of the sections below, or simply scroll down to find out more.
+
+* [About this project](#about-this-project)
+* [Contributors](#contributors)
+* [Description of "Our Changing World" App](#description-of-our-changing-world-app)
+* [Downloading and Running locally](#downloading-and-running-locally)
+* [Get Involved](#get-involved)
+
+## About this project
+
+### The problem
+The world that we live in has dramatically changed over the past several decades. Global population, average life expectancy, and GDP per-capita have increased significantly across the globe. Yet, we continue to face important challenges such as inequity in growth rate of average life expectancy or GDP per-capita across different regions of the world. 
+
+### The solution
+To tackle the global scale problems of poverty, inequality, and access to health, there needs to be a nuanced understanding of our world through data. Within the ambit of the Sustainable Development Goals (SDGs), there is a growing need for production, usage, and understanding of statistics and other information about socio-economic
+development at national, regional, and global levels.
+
+This dashboard was created with the objective of making such pertinent fact-based data available to the world in a comprehensible format using customizable visualization of global development statistics using data from Gapminder Foundation: gapminder. ***The goal is to help governments, international organizations, researchers, and policymakers understand basic trends about the state of the world as a first step towards addressing global challenges outlined in the SDGs.*** A more detailed proposal of this project could be found [here](https://github.com/UBC-MDS/our_changing_world/blob/main/docs/proposal.md).
+
 ## Contributors
 
 -   Vera Cui
@@ -10,71 +39,68 @@ status](https://img.shields.io/github/license/UBC-MDS/our_changing_world)
 -   Rakesh Pandey
 -   Nagraj Rao
 
-## Motivation
+## Description of "Our Changing World" App
 
-**Our role:** Data scientist consultancy firm 
+The [dashboard](https://our-changing-world.herokuapp.com/) consists of 4 main sections: 
 
-**Target audience:** Governments, International Organizations, Researchers, and Policymakers
+(i) "What do you want to know" panel on the upper left: Here, the user can choose a topic that they are interested in learning more about out of three choices: Population, Life Expectancy, and GDP per Capita. The user can also specify the year by using the scroll bar, which is available in 5 year intervals between 1952 and 2007.
 
-The world that we live in has dramatically changed over the past several decades. Global population has increased from 2.4 billion to 6.3 billion between 1952 and 2007. Median global life expectancy, which stood at 45.1 years in 1952 has dramatically risen to 71.9 years in 2007. Between the same time period, global per-capita Gross Domestic Product (GDP) has also grown from USD 1,969 to USD 6,124, both in 2007 purchasing power parity (PPP) terms.
+(ii) A bubble map chart panel on the upper right: Here, a world map with data for each country is presented for the options selected in the "What do you want to know" panel.
 
-However, the world continues to face important challenges. There are significant differences in several global development indicators across regions. For example, the median life expectancy in Africa stood at 52.9 years, compared to Europe at 78.6 years in 2007. Despite significant
-growth in per-capita GDP over the years, there continues to be an unequal distribution of wealth, with Democratic Republic of Congo having a per-capita GDP of USD 277.5 in 2007 (PPP adjusted), compared to Norway which had a per-capita
-GDP of 49,357.19 in 2007 (PPP adjusted).
+(iii) A "World Ranking" panel on the bottom left: Here, a bar chart at the country level for the options selected in the "What do you want to know" panel is displayed in decreasing rank order. 
 
-In order to tackle global level problems of poverty, inequality, and access to health, there needs to be an improved understanding of our world through data. Within the ambit of the Sustainable Development Goals (SDGs), there is a growing need for production, usage, and understanding of statistics and other information about socio-economic
-development at national, regional, and global levels.
+(iv) A "World Trend" panel on the bottom right: Here, a time-series plot is presented for each region of the world for the options selected in the "What do you want to know" panel.
 
-This dashboard was created with the objective of making such pertinent fact-based data available to the world in a comprehensible format using customizable visualization of global development statistics using data
-from Gapminder Foundation: [`gapminder`](https://www.gapminder.org/). The goal is to help governments, international organizations, researchers, and policymakers draw evidence-based conclusions about the state of the world as a first step towards addressing global challenges outlined in the SDGs.
+All plots are automatically updated when new selections are made in the "What do you want to know" panel.  
 
-## Data Description
+![](https://github.com/UBC-MDS/our_changing_world/blob/documentation/img/gif_app.gif)
 
-The dataset used in this project, [`gapminder`](https://www.gapminder.org/), comprises of 1704 observations and 6 features: `country` (Country), `continent`  (Continent), `year` (Year), `lifeExp` (Life Expectancy), `pop` (Population), and `gdpPercap` (GDP per capita). It tracks changes across 142 countries from 1952 to 2007 across three variables: Life expectancy, Population and GDP per capita, subject to data availability. Table 1 presents summary statistics for these three variables in the [`gapminder`](https://www.gapminder.org/) dataset.
+## Downloading and Running Locally
 
 
-**Table 1: Summary of numeric features in the [`gapminder`](https://www.gapminder.org/) dataset**
+### Option 1: Using `docker`
 
-|         | Life expectancy | Population | GDP per capita |
-|:--------|:---------------:|:----------:|:--------------:|
-| Min.    |      23.60      | 6.001e+04  |     241.2      |
-| 1st Qu. |      48.20      | 2.794e+06  |     1202.1     |
-| Median  |      60.71      | 7.024e+06  |     3531.8     |
-| Mean    |      59.47      | 2.960e+07  |     7215.3     |
-| 3rd Qu. |      70.85      | 1.959e+07  |     9325.5     |
-| Max.    |      82.60      | 1.319e+09  |    113523.1    |
+To run this analysis using Docker, clone/download this repository, use the command line to navigate to the root of this project on your computer, and run with `docker-compose`.
 
+**Steps -** 
 
-Figure 1 chronicles changes in life expectancy, population, and GDP per capita between 1952 and 2007 across different continents, showcasing differences in growth patterns, indicative of an uneven distribution.
+1. Copy and paste the following link: `git clone https://github.com/UBC-MDS/our_changing_world.git` to your Terminal. 
 
+2. On your terminal, type: `cd our_changing_world`.
 
-**Figure 1: Exploratory Data Analysis (EDA) on [`gapminder`](https://www.gapminder.org/) dataset**
+3. Run the following command in your terminal.
 
-![](https://user-images.githubusercontent.com/82998596/154370232-91373e7f-2f36-4cf7-bfde-b40bff141696.png)
+```bash
+docker-compose up
+```
 
-## Research Questions being explored
+A web server will be started at port 8000 to serve the app. App can be accessed in local machine by accessing [http://localhost:8000](http://localhost:8000) in any of the modern web browser.
 
-This project would help answer questions pertaining to trends in the three numerical features in our dataset. 
+### Option 2: Using `conda` in local machine
 
-For example, let us assume that Salma is an economist with the World Bank, a large multi-lateral international development organization. She wants to answer the following three research questions:
+To download the contents of this GitHub page on to your local machine follow these steps:
 
-1.  How has global population grown between 1952 and 2007 across different geographies (both country and continent level)?
+1. Copy and paste the following link: `git clone https://github.com/UBC-MDS/our_changing_world.git` to your Terminal. 
 
-2.  How has per-capita GDP (in USD) changed across the world between 1952 and 2007. Also, is there a skewed distribution across geographies (both country and continent level), indicating inequality?
+2. On your terminal, type: `cd our_changing_world`.
 
-3.  How has median life expectancy (in years) evolved between 1952 and 2007 across the world, and has the growth rate been different across geographies (both country and continent level)?
+3. To run a development instance locally, first create a virtualenv by typing: `conda create --name myenv_ourchangingworld`
 
-While her overall objective is to identify the factors that explain growth and inequities for these three variables, the three research questions stated above serve as a starting point, permitting the conduct exploratory data analysis to understand general trends over time and would assist in devising global policies that can address these inequalities.
+4. Install the requirements from ***requirements.txt*** by typing: `pip install -r requirements.txt` 
 
-When Salma logs onto the “Our Changing World!” app, she will be able to see a dynamic visualization of the evolution of these three indicators across countries and by continent. By filtering across countries and years, she can conduct country-level or continent-level comparisons which will facilitate ranking countries on these indicators. Noticing
-inequalities across regions, she hypothesizes that growth in GDP and life expectancy is slower in some economies due to poor governance and corruption. Given that information on poor governance and corruption are not captured in her research dataset, Salma decides that she needs to conduct a follow-on data collection activity on these two variables to estimate a causal impact of poor governance and corruption on population
-growth, increase in GDP per capita, and rise in median life expectancy.
+5. Type the following command if the environment isn't automatically activated after Step 3: `conda activate myenv_ourchangingworld`
 
-## Running locally
+6. Launch ***app.py*** using the Python executable from the virtualenv: `python src/app.py`
 
-To run a development instance locally, create a virtualenv, install the requirements from `requirements.txt` and launch `app.py` using the Python executable from the virtualenv.
+7. Using any modern web browser, visit http://127.0.0.1:9090/ to access the app.
 
-## Deploying on Heroku
+**Note that for Steps 3 - 6 to work smoothly, you have to be in the our_changing_world directory.**
 
-Use `make image` to create a Docker image. Then, follow [these
-instructions](link_to_url) to deploy the image on Heroku.
+## Get involved
+
+If you have feedback for improvement (and we bet you do) or suggestions on any areas that we haven't yet thought of (and here we are certain you can), then please check out our [Contributing Guidelines](https://github.com/UBC-MDS/our_changing_world/blob/main/CONTRIBUTING.md).
+
+If you want to report a problem or suggest an enhancement we would appreciate if you could `Open an Issue` on this github repository because then we can get right on it.
+
+Please note that it's very important to us that we maintain a positive and supportive environment for everyone who wants to participate. When you join us we ask that you follow our [code of conduct](https://github.com/UBC-MDS/our_changing_world/blob/main/CONDUCT.md) in all interactions.
+

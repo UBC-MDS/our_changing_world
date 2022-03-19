@@ -1,13 +1,17 @@
-FROM ubuntu:18.10
-LABEL maintainer="DSCI_532_GROUP1 <rakeshpandey@karunya.edu.in>"
+# This Dockerfile is from https://github.com/thedirtyfew/dash-docker-mwe
 
-RUN apt-get update
-RUN apt-get install -y python3 python3-dev python3-pip
+FROM python:3.8-slim-buster
 
-COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install -r /tmp/requirements.txt
-
-COPY ./ /app
+# Create a working directory.
+RUN mkdir /app
 WORKDIR /app
 
-CMD gunicorn --bind 0.0.0.0:80 wsgi
+# Install Python dependencies.
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+
+# Copy the rest of the codebase into the image
+COPY . ./
+
+# Finally, run gunicorn.
+CMD [ "gunicorn", "--workers=5", "--threads=1", "-b 0.0.0.0:8000", "src.app:server"]
