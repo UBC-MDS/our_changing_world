@@ -70,4 +70,4 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Code of Conduct
 
 Please note that the `our_changing_world` project is released with a 
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+[code of conduct](https://github.com/UBC-MDS/our_changing_world/blob/main/CONDUCT.md). By contributing to this project you agree to abide by its terms.
