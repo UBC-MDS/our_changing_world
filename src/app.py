@@ -372,33 +372,12 @@ def get_para(year, col):
     Input("target-filter", "value"),
 )
 def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
-    # world_map = alt.topo_feature(data.world_110m.url, "countries")
-    # background = (
-    #     alt.Chart(world_map)
-    #     .mark_geoshape(fill="lightgray", stroke="white", color='continent:N')
-    #     .properties(width=1000, height=400)
-    #     .project(type="equalEarth")
-    # )
-
-    # Data generators for the background
-    sphere = alt.sphere()
-    graticule = alt.graticule()
-
-    # Source of land data
-    source = alt.topo_feature(data.world_110m.url, "countries")
-
-    # Layering and configuring the components
+    world_map = alt.topo_feature(data.world_110m.url, "countries")
     background = (
-        alt.layer(
-            alt.Chart(sphere).mark_geoshape(fill="lightblue", opacity=0.4),
-            alt.Chart(graticule).mark_geoshape(stroke="white", strokeWidth=0.5),
-            alt.Chart(source).mark_geoshape(
-                fill="ForestGreen", stroke="black", opacity=0.1
-            ),
-        )
-        .project("naturalEarth1")
-        .properties(width=800, height=400)
-        .configure_view(stroke=None)
+        alt.Chart(world_map)
+        .mark_geoshape(fill="lightgray", stroke="white", color='continent:N')
+        .properties(width=1000, height=400)
+        .project(type="equalEarth")
     )
 
     df_pos = pd.read_csv("data/world_country.csv")
@@ -427,7 +406,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         alt.Chart({"values": [{}]})
         .mark_text(align="left", baseline="top")
         .encode(
-            x=alt.value(900),
+            x=alt.value(850),
             y=alt.value(10),
             size=alt.value(50),
             color=alt.value("lightgray"),
@@ -442,7 +421,7 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
         .encode(
             x=alt.value(20),
             y=alt.value(10),
-            size=alt.value(15),
+            size=alt.value(20),
             color=alt.value("gray"),
             text=alt.value(text),
         )
