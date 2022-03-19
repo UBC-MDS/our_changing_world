@@ -41,7 +41,7 @@ This dashboard was created with the objective of making such pertinent fact-base
 
 ## Description of "Our Changing World" App
 
-The [dashboard](https://our-changing-world.herokuapp.com/) consists of 4 main sections: 
+The [dashboard](https://our-changing-world.herokuapp.com/) consists of 5 main sections: 
 
 (i) "What do you want to know" panel on the upper left: Here, the user can choose a topic that they are interested in learning more about out of three choices: Population, Life Expectancy, and GDP per Capita. The user can also specify the year by using the scroll bar, which is available in 5 year intervals between 1952 and 2007.
 
