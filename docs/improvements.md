@@ -13,3 +13,14 @@
 **1.3. Comments:** Code of conduct is missing contact information in case of a violation
 
 **Our response:** Thank you. Contact Information has been added. @[commit 468dc ](https://github.com/UBC-MDS/our_changing_world/commit/468dcb4f325c894b9a45a1ac96555ea347470e96)
+
+### 2. Comments from Reviewers
+
+**2.1. Comments:** ... One exception is for the world ranking graph, since the graph is extra long in length, it is hard to see the x-axis label at first glance.
+
+**Our response:** Position of X-axis of "World Ranking Chart" has been moved to the top as suggested by the reviewer. @[commit ceb6fa](https://github.com/UBC-MDS/our_changing_world/commit/ceb6fafcc535220582eabc5d4f9228176843135c)
+
+**2.2. Comments:** The world map graph lacks a clear title label and labels for the colors. (The colors are labeled in the world trend graph below but it would be nice to have them there too) 
+
+**Our response:** A legend was added to "World Map" as suggested by the reviewer.@[commit 39325](https://github.com/UBC-MDS/our_changing_world/commit/3932574a4ea920a1e292560ccdb6e39bad6248b4)
+
