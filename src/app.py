@@ -205,6 +205,29 @@ app.layout = dbc.Container(
     Input("target-filter", "value"),
 )
 def plot_world_trend(year, y_axis):
+    """
+    Create a line plot showing world trend based on year and a category
+    ("pop" or"lifeExp" or "gdpPerCap) in gapminder dataset
+    
+    Parameters
+    ----------
+    year   : int
+             A year of interest
+    
+    y_axis : string
+             A category in gapminder dataset
+
+    Returns
+    ----------
+    chart_final : altair.Chart object
+                  An altair object showing a line plot
+    
+    
+    Examples
+    ----------
+    >>> plot_world_trend(2002, "pop")
+    """
+    
     if y_axis == "pop":
         df = gapminder.groupby(["year", "continent"]).sum().reset_index()
     else:
@@ -261,6 +284,29 @@ def plot_world_trend(year, y_axis):
     Input("target-filter", "value"),
 )
 def plot_world_ranking(year, y_axis):
+    """
+    Create a bar chart showing world ranking based on a category
+    ("pop" or"lifeExp" or "gdpPerCap) in the year of interest
+    
+    Parameters
+    ----------
+    year   : int
+             A year of interest
+    
+    y_axis : string
+             A category in gapminder dataset
+
+    Returns
+    ----------
+    chart_final : altair.Chart object
+                  An altair object showing a bar chart
+    
+    
+    Examples
+    ----------
+    >>> plot_world_ranking(2002, "pop")
+    """
+
     year = year
     df = gapminder.query("year == @year").sort_values(by=y_axis, ascending=False)
     df["ranking"] = [f"#{i+1}" for i in range(142)]
