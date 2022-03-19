@@ -12,11 +12,13 @@
 
 ### Differences between DashPy and DashR
 
-1. The scales are slightly different between DashPy and DashR. However, due to the tooltip, we believe that this is not a major issue.
+1. The major difference in the DashPy and DashR dashboards is that there is no "theme selection" option in DashR. This is primarily because Dash for R is still new so this theme option is not yet available. This is pending work that we hope to accomplish in the near future. However, the base template remains the same in both cases.
 
-2. At present, we can export individual plots in DashR but not DashPy. Should time permit, we would like to refine DashPy to enable this feature. 
+2. The scales are slightly different between DashPy and DashR. However, due to the tooltip, we believe that this is not a major issue.
 
-3. Plots are in different color themes for DashPy and DashR apps. 
+3. At present, we can export individual plots in DashR but not DashPy. Should time permit, we would like to refine DashPy to enable this feature. 
+
+4. Plots are in different color themes for DashPy and DashR apps. 
 
 
 ### Limitations and future improvements
@@ -30,3 +32,5 @@
 4. Another futuristic goal would be to allow users to create their own set of customized charts, based on the user's preferences of x and y axis alongside type of graph desired. We could have general layouts for each type of chart that is available in the statistical world, and allow users to create their own visualizations rather than forcing them to only go with the axes we have pre-selected. 
 
 5. Another possible improvement can be using more comprehensive gapminder dataset with more categories. It would be also great to include another tab for country-specific informations.  
+
+6. The bubbles on the world map look similar for life expectancy because the changes in life expectancy across different countries within the same time period is marginal compared to population and GDP. Perhaps, we need to design a function so as to show significant changes in life expectancy with more noticeable changes in the bubble size.
