@@ -47,9 +47,11 @@ The [dashboard](https://our-changing-world.herokuapp.com/) consists of 4 main se
 
 (ii) A bubble map chart panel on the upper right: Here, a world map with data for each country is presented for the options selected in the "What do you want to know" panel.
 
-(iii) A "World Ranking" panel on the bottom left: Here, a bar chart at the country level for the options selected in the "What do you want to know" panel is displayed in decreasing rank order. 
+(iii) A scatter plot chart on the middle left: Here, a bubble plot between Life Expectancy vs GDP per capita is presented for the options selected in the "What do you want to know" panel.
 
 (iv) A "World Trend" panel on the bottom right: Here, a time-series plot is presented for each region of the world for the options selected in the "What do you want to know" panel.
+
+(v) A "World Ranking" panel on the bottom left: Here, a bar chart at the country level for the options selected in the "What do you want to know" panel is displayed in decreasing rank order.
 
 All plots are automatically updated when new selections are made in the "What do you want to know" panel.  
 
