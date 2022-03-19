@@ -357,7 +357,7 @@ def get_para(year, col):
     year   : int
              A year of interest
     
-    y_axis : string in ['pop', 'lifeExp, 'gdpPercap']
+    col    : string in ['pop', 'lifeExp, 'gdpPercap']
              A category in gapminder dataset
     Returns
     ----------
@@ -399,12 +399,12 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
     year   : int
              A year of interest
     
-    y_axis : string in ['pop', 'lifeExp, 'gdpPercap']
+    col    : string in ['pop', 'lifeExp, 'gdpPercap']
              A category in gapminder dataset
     Returns
     ----------
-    chart_final : altair.Chart object
-                  An altair object showing a bar chart
+    map chart   : altair.Chart object
+                  An altair object showing a world map
     
     
     Examples
@@ -475,11 +475,24 @@ def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
 
 @app.callback(Output("life-exp-vs-gdp", "srcDoc"), Input("year-slider", "value"))
 def bubble_chart(year):
-    """Create bubble chart from gapminder data
-
-    Args:
-        year (numeric): Year of interest
     """
+    Create bubble chart from gapminder data
+    
+    Parameters
+    ----------
+    year   : int
+             A year of interest
+    
+    Returns
+    ----------
+    map chart   : altair.Chart object
+                  An altair object showing a bubble on world map
+    
+    Examples
+    ----------
+    >>> bubble_chart(2002)
+    """
+    
     df = gapminder[gapminder.year == year].drop("year", axis=1)
 
     df = (
