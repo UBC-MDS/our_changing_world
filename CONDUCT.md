@@ -22,7 +22,7 @@ Examples of unacceptable behavior by participants include:
 -   Publishing others' private information, such as a physical or electronic address, without explicit permission
 -   Other conduct which could reasonably be considered inappropriate in a professional setting
 
-Any instances of unacceptable behaviour may be reported by reaching out to the project maintainer \@[suuuuperNova](%5Bjinglu_cui@163.com%5D(mailto:jinglu_cui@163.com)%7B.email%7D).
+Any instances of unacceptable behaviour may be reported by reaching out to the project maintainer @[suuuuperNOVA](mailto:jinglu_cui@163.com).
 
 ## Our Responsibilities
 
