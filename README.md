@@ -41,19 +41,21 @@ This dashboard was created with the objective of making such pertinent fact-base
 
 ## Description of "Our Changing World" App
 
-The [dashboard](https://our-changing-world.herokuapp.com/) consists of 4 main sections: 
+The [dashboard](https://our-changing-world.herokuapp.com/) consists of 5 main sections: 
 
 (i) "What do you want to know" panel on the upper left: Here, the user can choose a topic that they are interested in learning more about out of three choices: Population, Life Expectancy, and GDP per Capita. The user can also specify the year by using the scroll bar, which is available in 5 year intervals between 1952 and 2007.
 
 (ii) A bubble map chart panel on the upper right: Here, a world map with data for each country is presented for the options selected in the "What do you want to know" panel.
 
-(iii) A "World Ranking" panel on the bottom left: Here, a bar chart at the country level for the options selected in the "What do you want to know" panel is displayed in decreasing rank order. 
+(iii) A scatter plot chart on the middle left: Here, a bubble plot between Life Expectancy vs GDP per capita is presented for the options selected in the "What do you want to know" panel.
 
 (iv) A "World Trend" panel on the bottom right: Here, a time-series plot is presented for each region of the world for the options selected in the "What do you want to know" panel.
 
+(v) A "World Ranking" panel on the bottom left: Here, a bar chart at the country level for the options selected in the "What do you want to know" panel is displayed in decreasing rank order.
+
 All plots are automatically updated when new selections are made in the "What do you want to know" panel.  
 
-![](https://github.com/UBC-MDS/our_changing_world/blob/documentation/img/gif_app.gif)
+![](https://github.com/UBC-MDS/our_changing_world/blob/nrao944/img/FINAL_GIF.gif)
 
 ## Downloading and Running Locally
 
