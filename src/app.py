@@ -331,8 +331,7 @@ def plot_world_ranking(year, y_axis):
             alt.Y(
                 "country",
                 sort=alt.EncodingSortField("value", op="min", order="descending"),
-                title="Country",
-            ),
+                title=""),
             color=alt.Color("continent", legend=None),
             opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
             tooltip=y_axis,
@@ -457,8 +456,7 @@ def bubble_chart(year):
                 "gdpPercap:Q",
                 title="GDP per Capita [USD]",
                 scale=alt.Scale(zero=False),
-                axis=alt.Axis(format="$~s"),
-            ),
+                axis=alt.Axis(format="$,d")),
             alt.Y(
                 "lifeExp:Q",
                 title="Life Expectancy [Years]",
@@ -466,7 +464,7 @@ def bubble_chart(year):
             ),
             alt.Size("pop:Q", scale=alt.Scale(range=[100, 2000]), legend=None),
             alt.Order("pop:Q", sort="descending"),
-            alt.Color("continent:N", scale=alt.Scale(scheme="dark2")),
+            alt.Color("continent:N"),
             opacity=alt.condition(selection, alt.value(0.6), alt.value(0.1)),
             tooltip=[
                 alt.Tooltip("country:N", title="Country"),
