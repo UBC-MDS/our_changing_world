@@ -349,7 +349,7 @@ def plot_world_ranking(year, y_axis):
 
 
 def get_para(year, col):
-"""
+    """
     Get world map parameters
     
     Parameters
@@ -391,7 +391,7 @@ def get_para(year, col):
     Input("target-filter", "value"),
 )
 def plot_world(year, col):  # col = ['lifeExp', 'pop', 'gdpPercap']
-"""
+    """
     Plot world map
     
     Parameters
