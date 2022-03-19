@@ -55,7 +55,7 @@ The [dashboard](https://our-changing-world.herokuapp.com/) consists of 5 main se
 
 All plots are automatically updated when new selections are made in the "What do you want to know" panel.  
 
-![](https://github.com/UBC-MDS/our_changing_world/blob/nrao944/img/FINAL_GIF.gif)
+![](https://github.com/UBC-MDS/our_changing_world/blob/nrao944/img/FINAL_GIF_python.gif)
 
 ## Downloading and Running Locally
 
