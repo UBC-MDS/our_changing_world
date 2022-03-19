@@ -12,19 +12,21 @@
 
 ### Differences between DashPy and DashR
 
-3. The scales are slightly different between DashPy and DashR. However, due to the tooltip, we believe that this is not a major issue.
+1. The scales are slightly different between DashPy and DashR. However, due to the tooltip, we believe that this is not a major issue.
 
-4. At present, we can export individual plots in DashR but not DashPy. Should time permit, we would like to refine DashPy to enable this feature. 
+2. At present, we can export individual plots in DashR but not DashPy. Should time permit, we would like to refine DashPy to enable this feature. 
 
-5. Plots are in different color themes for DashPy and DashR apps. 
+3. Plots are in different color themes for DashPy and DashR apps. 
 
 
 ### Limitations and future improvements
 
 1. Some minor tweaks can be made to the overall web aesthetic design for both DashR and DashPy such as aligning fonts, axis values etc.
 
-3. There are some challenges with zooming in and out in each plot. For example, once I have zoomed into the plot, there is no way to go back to the original view other than refreshing the page. The manual zoom function tends to alter the x and y axis values being displayed. 
+2. There are some challenges with zooming in and out in each plot. For example, once I have zoomed into the plot, there is no way to go back to the original view other than refreshing the page. The manual zoom function tends to alter the x and y axis values being displayed. 
 
-4. DashPy can be finetuned to allow exporting individual plots instead of all three together for more flexibility.
+3. DashPy can be finetuned to allow exporting individual plots instead of all three together for more flexibility.
 
-5. Another futuristic goal would be to allow users to create their own set of customized charts, based on the user's preferences of x and y axis alongside type of graph desired. We could have general layouts for each type of chart that is available in the statistical world, and allow users to create their own visualizations rather than forcing them to only go with the axes we have pre-selected. 
+4. Another futuristic goal would be to allow users to create their own set of customized charts, based on the user's preferences of x and y axis alongside type of graph desired. We could have general layouts for each type of chart that is available in the statistical world, and allow users to create their own visualizations rather than forcing them to only go with the axes we have pre-selected. 
+
+5. Another possible improvement can be using more comprehensive gapminder dataset with more categories. It would be also great to include another tab for country-specific informations.  
